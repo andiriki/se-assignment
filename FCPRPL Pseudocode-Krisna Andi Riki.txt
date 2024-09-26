@@ -1,0 +1,33 @@
+START
+// Langkah 1: Input Nama Pengguna
+input nama_pengguna
+// Langkah 2: Tampilkan Daftar Buku
+tampilkan_daftar_buku()
+// Langkah 3: Input Buku yang Ingin Dipinjam
+input buku_yang_dipinjam
+// Langkah 4: Cek Stok Buku
+if stock_buku > 0 then
+    // Stok tersedia, lanjutkan proses peminjaman
+    stock_buku = stock_buku - 1
+    buku_dipinjam = buku_dipinjam + 1
+    tampilkan "Peminjaman berhasil"
+else
+    // Stok habis
+    tampilkan "Stok buku habis"
+    kembali ke langkah 2
+end if
+// Langkah 5: Apakah Pengguna Ingin Mengembalikan Buku?
+input ingin_mengembalikan_buku
+if ingin_mengembalikan_buku == "Ya" then
+    // Looping: Pengembalian Buku
+    while buku_dipinjam > 0 do
+        // Tambah stok buku
+        stock_buku = stock_buku + 1
+        buku_dipinjam = buku_dipinjam - 1
+        tampilkan "Buku berhasil dikembalikan"
+    end while
+else
+    tampilkan "Terima kasih!"
+end if
+
+END
